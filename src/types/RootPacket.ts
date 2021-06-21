@@ -1,18 +1,18 @@
 export class RootPacket {
-  protected _data: Buffer;
+  protected buf: Buffer;
 
   constructor() {
-    this._data = Buffer.from([
+    this.buf = Buffer.from([
       ...'Art-Net'.split('').map((e: string) => e.charCodeAt(0)),
       0x00,
     ]);
   }
 
   data = (): Buffer => {
-    return this._data;
+    return this.buf;
   };
 
   length = (): number => {
-    return this._data.length;
+    return this.buf.length;
   };
 }

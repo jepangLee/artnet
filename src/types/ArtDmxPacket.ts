@@ -20,8 +20,8 @@ export class ArtDmxPacket extends RootPacket {
       data[universe] = new Array(512).map(() => null);
     }
 
-    this._data = Buffer.concat([
-      this._data,
+    this.buf = Buffer.concat([
+      this.buf,
       Buffer.from(header.concat(data[universe].slice(0, (hLen * 256) + lLen))),
     ]);
   }

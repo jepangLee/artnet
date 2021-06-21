@@ -8,8 +8,8 @@ export class triggerPacket extends RootPacket {
 
     const header = [0, 153, 0, 14, 0, 0, hOem, lOem, key, subKey];
 
-    this._data = Buffer.concat([
-      this._data,
+    this.buf = Buffer.concat([
+      this.buf,
       Buffer.from(header.concat(new Array(512).map(() => null))),
     ]);
   }
