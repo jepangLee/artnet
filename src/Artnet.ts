@@ -83,8 +83,7 @@ class Artnet {
     return true;
   };
 
-  send = (universe: number, refresh: boolean | null,
-          callback?: Callback): void => {
+  send = (universe: number, refresh: boolean | null, callback?: Callback): void => {
     refresh = this.sendAll ? this.sendAll : refresh ?? false;
 
     if (!this.interval[universe]) {
@@ -109,12 +108,10 @@ class Artnet {
 
     const buf = new ArtDmxPacket(this.data, universe, refresh ? 512 : this.dataChanged[universe]);
     this.dataChanged[universe] = 0;
-    this.socket.send(buf.data(), 0, buf.length(),
-      this.port, this.host, callback);
+    this.socket.send(buf.data(), 0, buf.length(), this.port, this.host, callback);
   };
 
-  trigger = (oem: number | null, key: number,
-             subKey: number | null, callback?: Callback): boolean => {
+  trigger = (oem: number | null, key: number, subKey: number | null, callback?: Callback): boolean => {
     subKey = subKey ?? 0;
     oem = oem ?? 0xFFFF;
 
