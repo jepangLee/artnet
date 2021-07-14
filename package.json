@@ -1,23 +1,21 @@
 {
-  "name": "pure",
+  "name": "ts-artnet",
   "version": "1.0.0",
   "description": "",
-  "main": "src/Artnet.ts",
+  "main": "libs/Artnet.ts",
   "dependencies": {
-    "@types/node": "^15.0.1",
-    "artnet": "^1.4.0",
     "ts-loader": "^9.1.2",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.4"
   },
   "devDependencies": {
+    "@types/node": "^15.0.1",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
     "eslint": "^7.25.0"
   },
   "scripts": {
-    "run": "node --loader ts-node/esm src/index.ts",
-    "lint": "eslint --ext src/*.ts src/**/*.ts"
+    "lint": "eslint --ext libs/*.ts libs/**/*.ts"
   },
   "keywords": [],
   "author": "",
