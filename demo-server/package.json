@@ -23,8 +23,7 @@
   "name": "demo-server",
   "scripts": {
     "lint": "eslint --ext src/*.ts src/**/*.ts",
-    "run": "node --loader ts-node/esm src/index.ts",
-    "runjs": "node src/server.js"
+    "run": "node --loader ts-node/esm src/index.ts"
   },
   "version": "1.0.0"
 }
