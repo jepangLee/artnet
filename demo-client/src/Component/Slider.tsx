@@ -1,16 +1,7 @@
-import React, { Component, ReactNode, ReactElement } from 'react';
+import { Component, ReactNode, ReactElement, CSSProperties } from 'react';
 import { Range } from 'react-range';
 import { IThumbProps, ITrackProps } from 'react-range/lib/types';
 import axios, { AxiosResponse } from 'axios';
-
-type SliderProps = {
-  channel: number,
-  universe: number,
-}
-
-type SliderState = {
-  channel: number[],
-};
 
 export class Slider extends Component {
   state: SliderState;
@@ -25,31 +16,11 @@ export class Slider extends Component {
   }
 
   renderThumb = ({ props }: { props: IThumbProps }): ReactElement => (
-    <div
-      {...props}
-      style={{
-        ...props.style,
-        backgroundColor: '#999',
-        height: '20px',
-        width: '20px',
-      }}
-    />
+    <div {...props} style={{ ...props.style, ...styles.thumb }}/>
   );
 
-  renderTrack = ({ props, children }: {
-    props: ITrackProps;
-    children: React.ReactNode;
-  }): ReactElement => (
-    <div
-      {...props}
-      style={{
-        ...props.style,
-        backgroundColor: '#ccc',
-        height: '6px',
-        width: '100px',
-      }}>
-      {children}
-    </div>
+  renderTrack = ({ props, children }: { props: ITrackProps; children: ReactNode; }): ReactElement => (
+    <div {...props} style={{ ...props.style, ...styles.track }}> {children} </div>
   );
 
   change = async (universe: number, channel: number, numbers: number[]): Promise<void> => {
@@ -69,3 +40,25 @@ export class Slider extends Component {
       values={this.state.channel}/>
   );
 }
+
+type SliderProps = {
+  channel: number,
+  universe: number,
+}
+
+type SliderState = {
+  channel: number[],
+};
+
+const styles: Record<string, CSSProperties> = {
+  thumb: {
+    backgroundColor: '#999',
+    height: '20px',
+    width: '20px',
+  },
+  track: {
+    backgroundColor: '#ccc',
+    height: '6px',
+    width: '100px',
+  },
+};
