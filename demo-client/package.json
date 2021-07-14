@@ -1,0 +1,69 @@
+{
+  "author": "",
+  "browserslist": {
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ],
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ]
+  },
+  "build": {
+    "appId": "com.demo.client",
+    "productName": "demo-client"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "electron-is-dev": "^2.0.0",
+    "eslint": "^7.30.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-range": "^1.8.9",
+    "react-scripts": "4.0.3",
+    "typescript": "^4.1.2",
+    "web-vitals": "^1.0.1"
+  },
+  "description": "ts-artnet demo client",
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^15.12.4",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.28.1",
+    "@typescript-eslint/parser": "^4.28.1",
+    "concurrently": "^6.2.0",
+    "cross-env": "^7.0.3",
+    "electron": "^13.1.3",
+    "electron-builder": "^22.11.7",
+    "wait-on": "^5.3.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "homepage": "./",
+  "license": "ISC",
+  "main": "public/electron.js",
+  "name": "demo-client",
+  "private": true,
+  "scripts": {
+    "build": "npm run react-build && electron-builder",
+    "eject": "react-scripts eject",
+    "lint": "eslint './src**/*.{ts,tsx}'",
+    "react-build": "react-scripts build",
+    "react-start": "react-scripts start",
+    "release": "npm run react-build && electron-builder --publish=always",
+    "start": "tsc ./public/electron.ts && concurrently \"cross-env BROWSER=none npm run react-start\" \"wait-on http://localhost:3000 && electron .\"",
+    "test": "react-scripts test"
+  },
+  "version": "0.1.0"
+}

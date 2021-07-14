@@ -1,0 +1,37 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "root": true,
+  "rules": {
+    "@typescript-eslint/explicit-function-return-type": [
+      "warn",
+      {
+        "allowConciseArrowFunctionExpressionsStartingWithVoid": true,
+        "allowDirectConstAssertionInArrowFunctions": true,
+        "allowExpressions": true,
+        "allowHigherOrderFunctions": true,
+        "allowTypedFunctionExpressions": true
+      }
+    ],
+    "@typescript-eslint/prefer-function-type": "warn",
+    "array-bracket-newline": "warn",
+    "max-len": [
+      "warn",
+      {
+        "code": 110
+      }
+    ],
+    "no-return-await": "warn",
+    "prefer-arrow-callback": "warn",
+    "sort-keys": "warn",
+    "sort-vars": "warn",
+    "valid-typeof": "warn",
+    "yoda": "warn"
+  }
+}
