@@ -13,10 +13,10 @@ const artnet = new Artnet({
 app.use(logger('dev'));
 app.use(cors());
 
-app.post('/:universe/:startChannel/:values', (req: Request, res: Response) => {
-  const universe = parseInt(req.params.universe);
-  const values = req.params.values.split(',').map((e: string) => parseInt(e));
-  const startChannel = parseInt(req.params.startChannel);
+app.post('/:universe/:startChannel/:values', ({ params }: Request, res: Response) => {
+  const universe = parseInt(params.universe);
+  const values = params.values.split(',').map((e: string) => parseInt(e));
+  const startChannel = parseInt(params.startChannel);
   artnet.set(universe, startChannel, values, (error: Error, bytes: number) => {
     if (error) {
       console.log(error);
