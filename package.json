@@ -1,23 +1,22 @@
 {
-  "name": "ts-artnet",
-  "version": "1.0.0",
-  "description": "",
-  "main": "libs/Artnet.ts",
+  "author": "",
   "dependencies": {
     "ts-loader": "^9.1.2",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.4"
   },
+  "description": "change https://github.com/hobbyquaker/artnet to TypeScript",
   "devDependencies": {
     "@types/node": "^15.0.1",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
     "eslint": "^7.25.0"
   },
+  "license": "ISC",
+  "main": "libs/Artnet.ts",
+  "name": "ts-artnet",
   "scripts": {
     "lint": "eslint --ext libs/*.ts libs/**/*.ts"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "version": "1.0.0"
 }
