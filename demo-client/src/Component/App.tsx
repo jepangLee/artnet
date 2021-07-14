@@ -13,10 +13,13 @@ export class App extends Component {
   fillTwoChar = (data: number): string => data < 10 ? `0${data}` : data + '';
 
   render(): ReactNode {
-    const Sliders = [...Array(4).keys()].map((e:number) => (<>
-        채널 {e + 1}
-        <Slider channel={e + 1}/>
-      </>))
+    const Sliders = [...Array(4).keys()].map((e: number) => (<>
+      {`채널 ${e + 1}`}
+      <Slider
+        universe={1}
+        channel={e + 1}
+      />
+    </>));
 
     return (
       <div className="App">
