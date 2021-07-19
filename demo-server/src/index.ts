@@ -21,16 +21,18 @@ app.use(logger((tokens: TokenIndexer, req: Request, res: Response) => [
 ].join(' ')));
 app.use(cors());
 
-app.post('/:universe/:startChannel/:values', ({ params }: Request, res: Response) => {
+app.post('/:universe/:startChannel/:values/:timer', ({ params }: Request, res: Response) => {
   const universe = parseInt(params.universe);
   const values = params.values.split(',').map((e: string) => parseInt(e));
   const startChannel = parseInt(params.startChannel);
-  artnet.set(universe, startChannel, values, (error: Error, bytes: number) => {
-    if (error) {
-      console.log(error);
-    }
-    console.log(bytes);
-  });
+  const timer = parseInt(params.timer);
+
+  const timeout = setTimeout(() => {
+    artnet.set(universe, startChannel, values, (error: Error, bytes: number) => {
+      console.log(error ?? bytes);
+    });
+    clearTimeout(timeout);
+  }, timer);
   res.send({
     startChannel,
     universe,

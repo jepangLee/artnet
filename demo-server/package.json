@@ -5,7 +5,7 @@
     "express": "^4.17.1",
     "morgan": "^1.10.0",
     "ts-loader": "^9.1.2",
-    "ts-node": "^9.1.1",
+    "ts-node": "^10.1.0",
     "typescript": "^4.2.4"
   },
   "description": "ts-artnet demo server",
@@ -13,17 +13,21 @@
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
     "@types/morgan": "^1.9.3",
-    "@types/node": "^15.0.1",
+    "@types/node": "^16.3.3",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
-    "eslint": "^7.25.0"
+    "cross-env": "^7.0.3",
+    "eslint": "^7.25.0",
+    "nodemon": "^2.0.12",
+    "tsconfig-paths": "^3.10.1"
   },
   "license": "ISC",
   "main": "src/Artnet.ts",
   "name": "demo-server",
   "scripts": {
     "lint": "eslint --ext src/*.ts src/**/*.ts",
-    "run": "node --loader ts-node/esm src/index.ts"
+    "dev": "nodemon -r ts-node src/index.ts",
+    "start": "tsc -p tsconfig.json && node dist/demo-server/src/index.js"
   },
   "version": "1.0.0"
 }
